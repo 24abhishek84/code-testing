@@ -4,9 +4,13 @@
  * @param {number} itemsPerPage
  * @param {Array<string>} pageData
  */
-function solution (pageNumber, itemsPerPage, pageData) {
-
-}
+const solution = (pageNumber, itemsPerPage, pageData) => {
+  const currentPage = pageNumber === 0 ? 1 : pageNumber;
+  const begin = Math.abs((Math.abs(currentPage) - 1) * itemsPerPage);
+  const end = begin + itemsPerPage;
+  const result = pageData.slice(begin, end);
+  return result.length > 0 ? result : null;
+};
 
 const data = [
   'a',
